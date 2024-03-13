@@ -39,11 +39,11 @@ public class Main {
             System.out.println("Your Total is: " + accountTotalCredit); // corrected variable name
         }
 
-        // Call the other method
-        program(keyboard);
+        // Call the other methods
+        program(keyboard, load);
     }
 
-    public static void program(Scanner keyboard) {
+    public static void program(Scanner keyboard, int load) {
         System.out.println("Select Program to Start");
         System.out.println("1: Calculator 2: Account management");
 
@@ -56,75 +56,86 @@ public class Main {
         String passWord = "2024"; // Corrected to String type
 
         if (programLoad == 1) {
-            program = 2;
+            program = 1;
             System.out.println("CALCULATOR");
+                    calculator(keyboard);
         } else if (programLoad == 2) {
-            program = 1; // setting program to 1 if programLoad is "2"
+            program = 2; // setting program to 1 if programLoad is "2"
             System.out.println("ACCOUNT MANAGEMENT");
+             account(load);
         } else {
             System.out.println("Invalid Program");
         }
 
         if (program == 1) {
             System.out.println("Welcome to calculator");
-            System.out.println("Thank you for your payment!");
+            System.out.println("JavOS calculator");
         }
         if (program == 2) {
-            System.out.println("Account Management");
-            System.out.println("Thank you for your payment!");
+            System.out.println("Restart to Quit");
         }
-        calculator(keyboard);
     }
-public static void calculator(Scanner keyboard) {
-    System.out.println("Select Operation:");
-    System.out.println("1: Addition");
-    System.out.println("2: Subtraction");
-    System.out.println("3: Multiplication");
-    System.out.println("4: Division");
 
-    // Reading user input for operation selection
-    int operationNumber = keyboard.nextInt();
+    public static void calculator(Scanner keyboard) {
+        System.out.println("Select Operation:");
+        System.out.println("1: Addition");
+        System.out.println("2: Subtraction");
+        System.out.println("3: Multiplication");
+        System.out.println("4: Division");
 
-    // Variables to store operand values
-    int operand1, operand2;
+        // Reading user input for operation selection
+        int operationNumber = keyboard.nextInt();
 
-    // Reading operand values from the user
-    System.out.println("Enter first operand:");
-    operand1 = keyboard.nextInt();
+        // Variables to store operand values
+        int operand1, operand2;
 
-    System.out.println("Enter second operand:");
-    operand2 = keyboard.nextInt();
+        // Reading operand values from the user
+        System.out.println("Enter first operand:");
+        operand1 = keyboard.nextInt();
 
-    // Process the selected operation
-    switch (operationNumber) {
-        case 1:
-            // Addition operation
-            int sum = operand1 + operand2;
-            System.out.println("Result of Addition: " + sum);
-            break;
-        case 2:
-            // Subtraction operation
-            int difference = operand1 - operand2;
-            System.out.println("Result of Subtraction: " + difference);
-            break;
-        case 3:
-            // Multiplication operation
-            int product = operand1 * operand2;
-            System.out.println("Result of Multiplication: " + product);
-            break;
-        case 4:
-            // Division operation
-            if (operand2 != 0) {
-                double quotient = (double) operand1 / operand2;
-                System.out.println("Result of Division: " + quotient);
-            } else {
-                System.out.println("Error: Division by zero!");
-            }
-            break;
-        default:
-            // Invalid operation
-            System.out.println("Invalid Operation");
+        System.out.println("Enter second operand:");
+        operand2 = keyboard.nextInt();
+
+        // Process the selected operation
+        switch (operationNumber) {
+            case 1:
+                // Addition operation
+                int sum = operand1 + operand2;
+                System.out.println("Result of Addition: " + sum);
+                break;
+            case 2:
+                // Subtraction operation
+                int difference = operand1 - operand2;
+                System.out.println("Result of Subtraction: " + difference);
+                break;
+            case 3:
+                // Multiplication operation
+                int product = operand1 * operand2;
+                System.out.println("Result of Multiplication: " + product);
+                break;
+            case 4:
+                // Division operation
+                if (operand2 != 0) {
+                    double quotient = (double) operand1 / operand2;
+                    System.out.println("Result of Division: " + quotient);
+                } else {
+                    System.out.println("Error: Division by zero!");
+                }
+                break;
+            default:
+                // Invalid operation
+                System.out.println("Invalid Operation");
+        }
     }
-}
 
+    public static void account(int load) {
+        System.out.println("Account Information");
+        System.out.println("Welcome: User108");
+        System.out.println("Version 0.1")
+        if (load == 2) {
+            System.out.println("Account Payment: Credit");
+        } else if (load == 1) {
+            System.out.println("Account Payment: Debit");
+        }
+    }
 }
